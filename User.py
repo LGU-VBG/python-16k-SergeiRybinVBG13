@@ -6,11 +6,11 @@ class User:
         self._age = age
 
     def find_error_name(self, name):
-        if not isinstance(name, str) and name.isalpha():
+        if not isinstance(name, str) or not name.isalpha():
             raise ValueError('Некорректное имя')
 
     def find_error_age(self, age):
-        if not isinstance(age, str) and 0 <= age <= 110:
+        if not isinstance(age, int) or age < 0 or age > 110:
             raise ValueError('Некорректный возраст')
 
     @property
